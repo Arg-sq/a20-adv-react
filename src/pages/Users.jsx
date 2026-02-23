@@ -9,6 +9,7 @@ const Users = () => {
   const [users, setUsers] = useState();
   const [showform, setshowform] = useState(false);
 
+  const [editId, setEditId] = useState(null);
   useEffect(() => {
     const getUsers = async () => {
       try {
@@ -30,7 +31,8 @@ const Users = () => {
             key={user.id}
             userDetail={user}
             setUsers={setUsers}
-            setshowform={setshowform}
+            setShowForm={setshowform}
+            setEditId={setEditId}
           />
         );
       })}
