@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import UserCard from "../components/UserCard";
+import UserForm from "../components/UserForm";
 
 export const BASEURL = "https://jsonplaceholder.typicode.com";
 const Users = () => {
@@ -21,6 +22,7 @@ const Users = () => {
 
   return (
     <div>
+      <UserForm />
       {users?.map((user) => {
         return <UserCard key={user.id} userDetail={user} setUsers={setUsers} />;
       })}
