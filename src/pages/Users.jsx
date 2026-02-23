@@ -24,7 +24,7 @@ const Users = () => {
 
   return (
     <div>
-      {showform && <UserForm />}
+      {showform && <UserForm editId={editId} users={users} />}
       {users?.map((user) => {
         return (
           <UserCard

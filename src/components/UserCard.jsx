@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { BASEURL } from "../pages/users";
 
-const UserCard = ({ userDetail, setUsers, setShowForm }) => {
+const UserCard = ({ userDetail, setUsers, setShowForm, setEditId }) => {
   const deleteUser = async () => {
     try {
       await axios.delete(`${BASEURL}/users/${userDetail.id}`);
@@ -32,7 +32,10 @@ const UserCard = ({ userDetail, setUsers, setShowForm }) => {
           style={{
             cursor: "pointer",
           }}
-          onClick={() => setShowForm((prev) => !prev)}
+          onClick={() => {
+            setShowForm((prev) => !prev);
+            setEditId(userDetail.id);
+          }}
         >
           edit
         </button>
