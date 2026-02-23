@@ -7,6 +7,7 @@ import UserForm from "../components/UserForm";
 export const BASEURL = "https://jsonplaceholder.typicode.com";
 const Users = () => {
   const [users, setUsers] = useState();
+  const [showform, setshowform] = useState(false);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -22,9 +23,16 @@ const Users = () => {
 
   return (
     <div>
-      <UserForm />
+      {showform && <UserForm />}
       {users?.map((user) => {
-        return <UserCard key={user.id} userDetail={user} setUsers={setUsers} />;
+        return (
+          <UserCard
+            key={user.id}
+            userDetail={user}
+            setUsers={setUsers}
+            setshowform={setshowform}
+          />
+        );
       })}
     </div>
   );
